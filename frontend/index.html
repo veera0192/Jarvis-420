@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>J.A.R.V.I.S Mobile Edition</title>
+<title>J.A.R.V.I.S Memory AI</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
@@ -19,8 +19,7 @@ body {
   color: #00eaff;
   font-family: 'Orbitron', sans-serif;
   min-height: 100vh;
-  padding: 12px;
-  overflow-x: hidden;
+  padding: 14px;
 }
 
 body::before {
@@ -28,104 +27,106 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 35%, #003e4d55, transparent 35%),
-    linear-gradient(#00151c33 1px, transparent 1px),
-    linear-gradient(90deg, #00151c33 1px, transparent 1px);
+    radial-gradient(circle at 50% 35%, #004a5a55, transparent 38%),
+    linear-gradient(#00eaff08 1px, transparent 1px),
+    linear-gradient(90deg, #00eaff08 1px, transparent 1px);
   background-size: auto, 35px 35px, 35px 35px;
   pointer-events: none;
   z-index: -1;
 }
 
 .app {
-  max-width: 650px;
+  max-width: 680px;
   margin: auto;
 }
 
 /* HEADER */
+
 .header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  border: 1px solid #007b91;
-  border-radius: 18px;
-  background: #04131dcc;
-  box-shadow: 0 0 20px #00d9ff18;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #008ba5;
+  border-radius: 25px;
+  background: #031722dd;
+  box-shadow: 0 0 30px #00eaff14;
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 25px;
   font-weight: bold;
   letter-spacing: 3px;
-  text-shadow: 0 0 12px #00eaff;
+  text-shadow: 0 0 15px #00eaff;
 }
 
 .logo span {
   display: block;
-  font-size: 9px;
-  letter-spacing: 4px;
+  font-size: 10px;
   text-align: center;
-  margin-top: 5px;
+  letter-spacing: 5px;
+  margin-top: 7px;
 }
 
 .header-icons {
-  font-size: 18px;
-  display: flex;
-  gap: 12px;
+  font-size: 23px;
 }
 
 /* GREETING */
+
 .greeting {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 14px;
+  gap: 14px;
+  margin-top: 15px;
 }
 
 .panel {
-  border: 1px solid #007b91;
-  border-radius: 16px;
-  padding: 18px;
-  background: linear-gradient(145deg, #06202b99, #02090dcc);
-  box-shadow: inset 0 0 25px #00eaff08;
+  padding: 20px;
+  border: 1px solid #007d95;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #06232fdd, #020a11dd);
+  box-shadow: inset 0 0 30px #00eaff06;
 }
 
 .panel small {
-  color: #7eaab8;
+  color: #91b4c0;
 }
 
 .panel h2 {
-  margin: 10px 0;
-  font-size: 23px;
   color: white;
+  font-size: 25px;
+  margin: 13px 0;
 }
 
 .panel p {
-  font-size: 10px;
-  line-height: 1.8;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 /* CORE */
+
 .core-section {
   text-align: center;
-  padding: 30px 0;
+  padding: 45px 0;
 }
 
 .core {
-  width: 260px;
-  height: 260px;
+  width: 280px;
+  height: 280px;
   margin: auto;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  background: radial-gradient(circle, #075465, #020b12 58%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #063d4b, #020a11 62%);
   border: 2px solid #00eaff;
   box-shadow:
-    0 0 20px #00eaff,
-    0 0 60px #007b91,
-    inset 0 0 40px #00eaff44;
+    0 0 25px #00eaff,
+    0 0 70px #007a91,
+    inset 0 0 50px #00eaff44;
   animation: pulse 4s infinite;
 }
 
@@ -134,21 +135,21 @@ body::before {
   content: "";
   position: absolute;
   border-radius: 50%;
-  border: 2px solid #00d9ff;
+  border: 2px solid #00eaff;
 }
 
 .core::before {
-  inset: 18px;
-  border-left-color: transparent;
-  border-right-color: #00ffff;
+  inset: 20px;
+  border-right-color: transparent;
+  border-bottom-color: #00ffff;
   animation: spin 5s linear infinite;
 }
 
 .core::after {
-  inset: -15px;
+  inset: -17px;
   border-top-color: transparent;
-  border-bottom-color: #00ffff;
-  animation: spin 8s linear infinite reverse;
+  border-left-color: #00ffff;
+  animation: spin 9s linear infinite reverse;
 }
 
 .core-content {
@@ -156,25 +157,26 @@ body::before {
 }
 
 .core-content h1 {
-  font-size: 23px;
+  font-size: 24px;
   letter-spacing: 4px;
 }
 
 .core-content p {
-  margin-top: 12px;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 3px;
+  margin-top: 14px;
 }
 
 .core-label {
-  margin-top: 35px;
+  font-size: 14px;
   letter-spacing: 5px;
-  font-size: 13px;
+  margin-top: 35px;
 }
 
 /* STATUS */
+
 .status h3 {
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 2px;
   margin-bottom: 15px;
 }
@@ -182,9 +184,9 @@ body::before {
 .status-row {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 13px 0;
   border-bottom: 1px solid #00647755;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .online {
@@ -192,28 +194,69 @@ body::before {
 }
 
 .locked {
-  color: #ff304f;
+  color: #ff3150;
+}
+
+/* MEMORY PANEL */
+
+.memory-panel {
+  margin-top: 15px;
+}
+
+.memory-panel h3 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.memory-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #00647755;
+  color: #bceef5;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.memory-key {
+  color: #00eaff;
+  font-weight: bold;
+}
+
+.delete-memory {
+  border: 1px solid #ff3150;
+  background: transparent;
+  color: #ff3150;
+  padding: 5px 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 /* CHAT */
+
 .chat {
-  height: 240px;
+  height: 270px;
   overflow-y: auto;
   border: 1px solid #008da5;
-  border-radius: 14px;
-  padding: 14px;
-  margin-top: 14px;
+  border-radius: 18px;
+  padding: 15px;
+  margin-top: 15px;
   background: #01080d;
 }
 
 .message {
-  padding: 13px;
+  padding: 14px;
   margin-bottom: 10px;
   border-left: 2px solid #00eaff;
+  border-radius: 5px;
   background: #06232b99;
   font-family: Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .user {
@@ -221,22 +264,23 @@ body::before {
 }
 
 /* QUICK BUTTONS */
+
 .quick-buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 14px;
+  gap: 9px;
+  margin-top: 15px;
 }
 
 .quick-buttons button {
-  padding: 13px 5px;
+  padding: 14px 5px;
   border: 1px solid #008da5;
-  border-radius: 12px;
+  border-radius: 13px;
   color: white;
   background: #06202c;
-  cursor: pointer;
   font-family: inherit;
   font-size: 10px;
+  cursor: pointer;
 }
 
 .quick-buttons button:active {
@@ -244,28 +288,29 @@ body::before {
 }
 
 /* INPUT */
+
 .input-area {
   display: flex;
-  gap: 8px;
-  margin-top: 14px;
+  gap: 9px;
+  margin-top: 15px;
 }
 
 input {
   flex: 1;
   min-width: 0;
-  padding: 16px;
+  padding: 17px;
   border: 1px solid #00d9ff;
-  border-radius: 14px;
+  border-radius: 15px;
+  outline: none;
   background: #02090f;
   color: white;
-  outline: none;
   font-size: 14px;
 }
 
-button.send {
-  width: 80px;
+.send {
+  width: 85px;
   border: none;
-  border-radius: 14px;
+  border-radius: 15px;
   background: #00eaff;
   color: #001018;
   font-family: inherit;
@@ -273,64 +318,71 @@ button.send {
   cursor: pointer;
 }
 
-/* MIC */
+/* MICROPHONE */
+
 .mic-area {
   text-align: center;
-  padding: 28px 0;
+  padding: 35px 0;
 }
 
 .mic {
-  width: 92px;
-  height: 92px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   border: 2px solid #00eaff;
   background: radial-gradient(circle, #00aabe, #02313c);
   color: white;
-  font-size: 35px;
+  font-size: 38px;
   cursor: pointer;
-  box-shadow: 0 0 30px #00eaff77;
+  box-shadow: 0 0 35px #00eaff77;
 }
 
 .mic.listening {
   animation: pulse 1s infinite;
-  background: #00b85c;
+  background: #00ad5a;
 }
 
 .mic-area p {
-  margin-top: 14px;
+  margin-top: 16px;
   font-size: 11px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .footer {
   text-align: center;
-  padding: 20px;
+  padding: 25px;
   font-size: 9px;
   letter-spacing: 3px;
   color: #367988;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 430px) {
   .greeting {
     grid-template-columns: 1fr;
   }
 
   .core {
-    width: 220px;
-    height: 220px;
+    width: 230px;
+    height: 230px;
   }
 
   .logo {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 </style>
@@ -340,188 +392,511 @@ button.send {
 
 <div class="app">
 
-  <header class="header">
-    <div class="logo">
-      J.A.R.V.I.S
-      <span>MOBILE EDITION</span>
-    </div>
-    <div class="header-icons">◉ ⚙</div>
-  </header>
+<header class="header">
+  <div class="logo">
+    J.A.R.V.I.S
+    <span>MOBILE EDITION</span>
+  </div>
+  <div class="header-icons">◉ ⚙</div>
+</header>
 
-  <section class="greeting">
-    <div class="panel">
-      <small>Hello,</small>
-      <h2>Veera</h2>
-      <p>Always here to assist you.</p>
-    </div>
+<section class="greeting">
 
-    <div class="panel">
-      <small>J.A.R.V.I.S Quote</small>
-      <h2>AI</h2>
-      <p>"Your intelligent digital partner."</p>
-    </div>
-  </section>
-
-  <section class="core-section">
-    <div class="core">
-      <div class="core-content">
-        <h1>J.A.R.V.I.S</h1>
-        <p>CORE ACTIVE</p>
-      </div>
-    </div>
-    <div class="core-label">SYSTEM READY</div>
-  </section>
-
-  <section class="panel status">
-    <h3>SYSTEM STATUS</h3>
-
-    <div class="status-row">
-      <span>AI CORE</span>
-      <span class="online">● ONLINE</span>
-    </div>
-
-    <div class="status-row">
-      <span>NETWORK</span>
-      <span class="online">● ONLINE</span>
-    </div>
-
-    <div class="status-row">
-      <span>VOICE</span>
-      <span id="voiceStatus" class="locked">○ LOCKED</span>
-    </div>
-
-    <div class="status-row">
-      <span>MEMORY</span>
-      <span class="locked">○ LOCKED</span>
-    </div>
-  </section>
-
-  <section class="chat" id="chat">
-    <div class="message">
-      <b>J.A.R.V.I.S:</b><br>
-      Systems online. How may I assist you?
-    </div>
-  </section>
-
-  <div class="quick-buttons">
-    <button onclick="openYouTube()">▶ YouTube</button>
-    <button onclick="openInstagram()">◎ Instagram</button>
-    <button onclick="makeCall()">☎ Call</button>
-    <button onclick="searchWeb()">⌕ Search</button>
-    <button onclick="speak('Camera command received')">▣ Camera</button>
-    <button onclick="speak('Memory system coming soon')">🧠 Memory</button>
+  <div class="panel">
+    <small>Hello,</small>
+    <h2>Veera</h2>
+    <p>Always here to assist you.</p>
   </div>
 
-  <div class="input-area">
-    <input id="userInput" placeholder="Type or speak to J.A.R.V.I.S...">
-    <button class="send" onclick="sendMessage()">SEND</button>
+  <div class="panel">
+    <small>J.A.R.V.I.S Quote</small>
+    <h2>AI</h2>
+    <p>"Your intelligent digital partner."</p>
   </div>
 
-  <section class="mic-area">
-    <button class="mic" id="micBtn" onclick="startListening()">🎙️</button>
-    <p id="micText">Tap to speak</p>
-  </section>
+</section>
 
-  <footer class="footer">
-    J.A.R.V.I.S<br><br>
-    MORE THAN AN ASSISTANT • YOUR PARTNER
-  </footer>
+<section class="core-section">
+
+  <div class="core">
+    <div class="core-content">
+      <h1>J.A.R.V.I.S</h1>
+      <p>CORE ACTIVE</p>
+    </div>
+  </div>
+
+  <div class="core-label">SYSTEM READY</div>
+
+</section>
+
+<section class="panel status">
+
+  <h3>SYSTEM STATUS</h3>
+
+  <div class="status-row">
+    <span>AI CORE</span>
+    <span class="online">● ONLINE</span>
+  </div>
+
+  <div class="status-row">
+    <span>NETWORK</span>
+    <span class="online">● ONLINE</span>
+  </div>
+
+  <div class="status-row">
+    <span>VOICE</span>
+    <span id="voiceStatus" class="locked">○ LOCKED</span>
+  </div>
+
+  <div class="status-row">
+    <span>MEMORY</span>
+    <span id="memoryStatus" class="online">● ACTIVE</span>
+  </div>
+
+</section>
+
+<section class="panel memory-panel">
+
+  <h3>🧠 MEMORY DATABASE</h3>
+
+  <div id="memoryList">
+    <p style="font-family:Arial;font-size:13px;color:#91b4c0">
+      No memories saved yet.
+    </p>
+  </div>
+
+</section>
+
+<section class="chat" id="chat">
+
+  <div class="message">
+    <b>J.A.R.V.I.S:</b><br>
+    Systems online. Memory system active. How may I assist you?
+  </div>
+
+</section>
+
+<div class="quick-buttons">
+
+  <button onclick="openYouTube()">▶ YouTube</button>
+  <button onclick="openInstagram()">◎ Instagram</button>
+  <button onclick="searchWeb()">⌕ Search</button>
+  <button onclick="saveDemoMemory()">🧠 Save Test</button>
+  <button onclick="showMemory()">💾 Memory</button>
+  <button onclick="clearMemory()">🗑 Clear</button>
+
+</div>
+
+<div class="input-area">
+
+  <input
+    id="userInput"
+    placeholder="Type or speak to J.A.R.V.I.S..."
+  >
+
+  <button class="send" onclick="sendMessage()">SEND</button>
+
+</div>
+
+<section class="mic-area">
+
+  <button class="mic" id="micBtn" onclick="startListening()">
+    🎙️
+  </button>
+
+  <p id="micText">Tap to speak</p>
+
+</section>
+
+<footer class="footer">
+  J.A.R.V.I.S<br><br>
+  MORE THAN AN ASSISTANT • YOUR PARTNER
+</footer>
 
 </div>
 
 <script>
+
+/* =====================================
+   JARVIS MEMORY SYSTEM
+===================================== */
+
+let jarvisMemory = {};
+
+try {
+  jarvisMemory = JSON.parse(
+    localStorage.getItem("jarvisMemory") || "{}"
+  );
+} catch (error) {
+  jarvisMemory = {};
+}
+
+function saveMemory(key, value) {
+
+  jarvisMemory[key] = value;
+
+  localStorage.setItem(
+    "jarvisMemory",
+    JSON.stringify(jarvisMemory)
+  );
+
+  renderMemory();
+}
+
+function getMemory(key) {
+  return jarvisMemory[key] || null;
+}
+
+function deleteMemory(key) {
+
+  delete jarvisMemory[key];
+
+  localStorage.setItem(
+    "jarvisMemory",
+    JSON.stringify(jarvisMemory)
+  );
+
+  renderMemory();
+
+  speak("Memory deleted.");
+}
+
+function clearMemory() {
+
+  const confirmed = confirm(
+    "Are you sure you want to clear all JARVIS memory?"
+  );
+
+  if (!confirmed) return;
+
+  jarvisMemory = {};
+
+  localStorage.removeItem("jarvisMemory");
+
+  renderMemory();
+
+  speak("All memory has been cleared.");
+}
+
+function renderMemory() {
+
+  const memoryList = document.getElementById("memoryList");
+  const keys = Object.keys(jarvisMemory);
+
+  if (keys.length === 0) {
+
+    memoryList.innerHTML = `
+      <p style="font-family:Arial;font-size:13px;color:#91b4c0">
+        No memories saved yet.
+      </p>
+    `;
+
+    return;
+  }
+
+  memoryList.innerHTML = "";
+
+  keys.forEach(function(key) {
+
+    const item = document.createElement("div");
+    item.className = "memory-item";
+
+    const content = document.createElement("span");
+
+    const keyElement = document.createElement("span");
+    keyElement.className = "memory-key";
+    keyElement.textContent = key + ": ";
+
+    content.appendChild(keyElement);
+    content.appendChild(
+      document.createTextNode(String(jarvisMemory[key]))
+    );
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-memory";
+    deleteButton.textContent = "Delete";
+
+    deleteButton.onclick = function() {
+      deleteMemory(key);
+    };
+
+    item.appendChild(content);
+    item.appendChild(deleteButton);
+
+    memoryList.appendChild(item);
+
+  });
+
+}
+
+function showMemory() {
+
+  const keys = Object.keys(jarvisMemory);
+
+  if (keys.length === 0) {
+    speak("నా మెమరీలో ప్రస్తుతం ఏమీ లేదు.");
+    return;
+  }
+
+  let response = "నా మెమరీలో ఉన్నవి: ";
+
+  keys.forEach(function(key, index) {
+    response += key + " " + jarvisMemory[key];
+
+    if (index < keys.length - 1) {
+      response += ", ";
+    }
+  });
+
+  speak(response);
+}
+
+function saveDemoMemory() {
+
+  saveMemory("favoriteAssistant", "JARVIS");
+
+  speak("Test memory saved successfully.");
+
+}
+
+/* =====================================
+   CHAT SYSTEM
+===================================== */
+
 const chat = document.getElementById("chat");
 const input = document.getElementById("userInput");
-const micBtn = document.getElementById("micBtn");
-const micText = document.getElementById("micText");
-const voiceStatus = document.getElementById("voiceStatus");
 
 function addMessage(sender, text, isUser = false) {
+
   const div = document.createElement("div");
+
   div.className = "message" + (isUser ? " user" : "");
-  div.innerHTML = `<b>${sender}:</b><br>${text}`;
+
+  const senderElement = document.createElement("b");
+  senderElement.textContent = sender + ":";
+
+  div.appendChild(senderElement);
+  div.appendChild(document.createElement("br"));
+  div.appendChild(document.createTextNode(text));
+
   chat.appendChild(div);
+
   chat.scrollTop = chat.scrollHeight;
+
 }
 
 function speak(text) {
+
   addMessage("J.A.R.V.I.S", text);
 
   if ("speechSynthesis" in window) {
+
     speechSynthesis.cancel();
+
     const speech = new SpeechSynthesisUtterance(text);
+
     speech.lang = "en-IN";
     speech.rate = 1;
+
     speechSynthesis.speak(speech);
+
   }
+
 }
 
+/* =====================================
+   MEMORY COMMAND PROCESSOR
+===================================== */
+
+function processMemoryCommand(command) {
+
+  const text = command.toLowerCase();
+
+  /* SAVE NAME */
+
+  if (
+    text.includes("నా పేరు వీరా") ||
+    text.includes("నా పేరు veera") ||
+    text.includes("my name is veera")
+  ) {
+
+    saveMemory("name", "Veera");
+
+    speak("సరే. నీ పేరు వీరా అని గుర్తుంచుకున్నాను.");
+
+    return true;
+  }
+
+  /* GET NAME */
+
+  if (
+    text.includes("నా పేరు ఏంటి") ||
+    text.includes("what is my name") ||
+    text.includes("నా పేరు చెప్పు")
+  ) {
+
+    const name = getMemory("name");
+
+    if (name) {
+      speak("నీ పేరు " + name + ".");
+    } else {
+      speak("నీ పేరు ఇంకా నా మెమరీలో లేదు.");
+    }
+
+    return true;
+  }
+
+  /* SAVE FAVORITE */
+
+  if (
+    text.includes("నాకు ఇష్టమైనది jarvis") ||
+    text.includes("my favorite is jarvis")
+  ) {
+
+    saveMemory("favorite", "JARVIS");
+
+    speak("నీ ఇష్టమైనది JARVIS అని గుర్తుంచుకున్నాను.");
+
+    return true;
+  }
+
+  /* SHOW MEMORY */
+
+  if (
+    text.includes("నా మెమరీ చూపించు") ||
+    text.includes("show my memory") ||
+    text.includes("what do you remember")
+  ) {
+
+    showMemory();
+
+    return true;
+  }
+
+  /* CLEAR MEMORY */
+
+  if (
+    text.includes("మొత్తం మెమరీ క్లియర్ చెయ్") ||
+    text.includes("clear all memory")
+  ) {
+
+    clearMemory();
+
+    return true;
+  }
+
+  return false;
+
+}
+
+/* =====================================
+   COMMAND SYSTEM
+===================================== */
+
 function sendMessage() {
+
   const text = input.value.trim();
 
   if (!text) return;
 
   addMessage("YOU", text, true);
+
   input.value = "";
 
   const command = text.toLowerCase();
+
+  /* MEMORY FIRST */
+
+  if (processMemoryCommand(text)) {
+    return;
+  }
+
+  /* YOUTUBE */
 
   if (
     command.includes("youtube") ||
     command.includes("యూట్యూబ్")
   ) {
+
     speak("Opening YouTube");
+
     setTimeout(openYouTube, 500);
+
     return;
   }
+
+  /* INSTAGRAM */
 
   if (
     command.includes("instagram") ||
     command.includes("ఇంస్టాగ్రామ్")
   ) {
+
     speak("Opening Instagram");
+
     setTimeout(openInstagram, 500);
+
     return;
   }
+
+  /* GREETING */
 
   if (
     command.includes("hello jarvis") ||
     command.includes("హలో జార్విస్")
   ) {
+
     speak("Hello Veera. I am ready.");
+
     return;
   }
 
-  speak("Your command has been received. AI integration is coming soon.");
+  /* DEFAULT */
+
+  speak(
+    "నీ కమాండ్ అందింది. AI brain connection తదుపరి దశలో జోడించవచ్చు."
+  );
+
 }
 
 input.addEventListener("keydown", function(event) {
+
   if (event.key === "Enter") {
     sendMessage();
   }
+
 });
 
-/* APP LAUNCH COMMANDS */
+/* =====================================
+   APP LAUNCH
+===================================== */
 
 function openYouTube() {
+
   window.location.href =
     "intent://www.youtube.com/#Intent;scheme=https;package=com.google.android.youtube;end";
+
 }
 
 function openInstagram() {
+
   window.location.href =
     "intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end";
-}
 
-function makeCall() {
-  window.location.href = "tel:";
 }
 
 function searchWeb() {
-  window.open("https://www.google.com", "_blank");
+
+  window.open(
+    "https://www.google.com",
+    "_blank"
+  );
+
 }
 
-/* SPEECH RECOGNITION */
+/* =====================================
+   SPEECH RECOGNITION
+===================================== */
 
 const SpeechRecognition =
   window.SpeechRecognition ||
@@ -530,47 +905,91 @@ const SpeechRecognition =
 let recognition;
 
 if (SpeechRecognition) {
+
   recognition = new SpeechRecognition();
+
   recognition.lang = "en-IN";
   recognition.continuous = false;
   recognition.interimResults = false;
 
   recognition.onstart = function() {
-    micBtn.classList.add("listening");
-    micText.textContent = "Listening...";
-    voiceStatus.textContent = "● READY";
-    voiceStatus.className = "online";
+
+    document
+      .getElementById("micBtn")
+      .classList.add("listening");
+
+    document.getElementById("micText").textContent =
+      "Listening...";
+
+    document.getElementById("voiceStatus").textContent =
+      "● READY";
+
+    document.getElementById("voiceStatus").className =
+      "online";
+
   };
 
   recognition.onresult = function(event) {
-    const text = event.results[0][0].transcript;
+
+    const text =
+      event.results[0][0].transcript;
+
     input.value = text;
+
     sendMessage();
+
   };
 
   recognition.onerror = function() {
-    micText.textContent = "Voice error";
-    micBtn.classList.remove("listening");
+
+    document.getElementById("micText").textContent =
+      "Voice error";
+
   };
 
   recognition.onend = function() {
-    micBtn.classList.remove("listening");
-    micText.textContent = "Tap to speak";
+
+    document
+      .getElementById("micBtn")
+      .classList.remove("listening");
+
+    document.getElementById("micText").textContent =
+      "Tap to speak";
+
   };
+
 }
 
 function startListening() {
+
   if (!recognition) {
-    speak("Speech recognition is not supported in this browser.");
+
+    speak(
+      "Speech recognition is not supported in this browser."
+    );
+
     return;
+
   }
 
   try {
+
     recognition.start();
+
   } catch (error) {
+
     console.log(error);
+
   }
+
 }
+
+/* =====================================
+   INITIALIZE
+===================================== */
+
+renderMemory();
+
 </script>
 
 </body>
