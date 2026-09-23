@@ -1,35 +1,577 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>J.A.R.V.I.S</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>J.A.R.V.I.S Mobile Edition</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #02070d;
+  color: #00eaff;
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  padding: 12px;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 35%, #003e4d55, transparent 35%),
+    linear-gradient(#00151c33 1px, transparent 1px),
+    linear-gradient(90deg, #00151c33 1px, transparent 1px);
+  background-size: auto, 35px 35px, 35px 35px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.app {
+  max-width: 650px;
+  margin: auto;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid #007b91;
+  border-radius: 18px;
+  background: #04131dcc;
+  box-shadow: 0 0 20px #00d9ff18;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-shadow: 0 0 12px #00eaff;
+}
+
+.logo span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.header-icons {
+  font-size: 18px;
+  display: flex;
+  gap: 12px;
+}
+
+/* GREETING */
+.greeting {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.panel {
+  border: 1px solid #007b91;
+  border-radius: 16px;
+  padding: 18px;
+  background: linear-gradient(145deg, #06202b99, #02090dcc);
+  box-shadow: inset 0 0 25px #00eaff08;
+}
+
+.panel small {
+  color: #7eaab8;
+}
+
+.panel h2 {
+  margin: 10px 0;
+  font-size: 23px;
+  color: white;
+}
+
+.panel p {
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* CORE */
+.core-section {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.core {
+  width: 260px;
+  height: 260px;
+  margin: auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(circle, #075465, #020b12 58%);
+  border: 2px solid #00eaff;
+  box-shadow:
+    0 0 20px #00eaff,
+    0 0 60px #007b91,
+    inset 0 0 40px #00eaff44;
+  animation: pulse 4s infinite;
+}
+
+.core::before,
+.core::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #00d9ff;
+}
+
+.core::before {
+  inset: 18px;
+  border-left-color: transparent;
+  border-right-color: #00ffff;
+  animation: spin 5s linear infinite;
+}
+
+.core::after {
+  inset: -15px;
+  border-top-color: transparent;
+  border-bottom-color: #00ffff;
+  animation: spin 8s linear infinite reverse;
+}
+
+.core-content {
+  z-index: 2;
+}
+
+.core-content h1 {
+  font-size: 23px;
+  letter-spacing: 4px;
+}
+
+.core-content p {
+  margin-top: 12px;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.core-label {
+  margin-top: 35px;
+  letter-spacing: 5px;
+  font-size: 13px;
+}
+
+/* STATUS */
+.status h3 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #00647755;
+  font-size: 11px;
+}
+
+.online {
+  color: #00ff77;
+}
+
+.locked {
+  color: #ff304f;
+}
+
+/* CHAT */
+.chat {
+  height: 240px;
+  overflow-y: auto;
+  border: 1px solid #008da5;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 14px;
+  background: #01080d;
+}
+
+.message {
+  padding: 13px;
+  margin-bottom: 10px;
+  border-left: 2px solid #00eaff;
+  background: #06232b99;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.user {
+  border-left-color: white;
+}
+
+/* QUICK BUTTONS */
+.quick-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.quick-buttons button {
+  padding: 13px 5px;
+  border: 1px solid #008da5;
+  border-radius: 12px;
+  color: white;
+  background: #06202c;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 10px;
+}
+
+.quick-buttons button:active {
+  background: #00a6c4;
+}
+
+/* INPUT */
+.input-area {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #00d9ff;
+  border-radius: 14px;
+  background: #02090f;
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+button.send {
+  width: 80px;
+  border: none;
+  border-radius: 14px;
+  background: #00eaff;
+  color: #001018;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* MIC */
+.mic-area {
+  text-align: center;
+  padding: 28px 0;
+}
+
+.mic {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 2px solid #00eaff;
+  background: radial-gradient(circle, #00aabe, #02313c);
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  box-shadow: 0 0 30px #00eaff77;
+}
+
+.mic.listening {
+  animation: pulse 1s infinite;
+  background: #00b85c;
+}
+
+.mic-area p {
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #367988;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@media (max-width: 420px) {
+  .greeting {
+    grid-template-columns: 1fr;
+  }
+
+  .core {
+    width: 220px;
+    height: 220px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <header><h1>J.A.R.V.I.S</h1><p>MOBILE EDITION</p></header>
 
-  <div class="core">
-    <div class="ring r1"></div>
-    <div class="ring r2"></div>
-    <div class="center"></div>
+<div class="app">
+
+  <header class="header">
+    <div class="logo">
+      J.A.R.V.I.S
+      <span>MOBILE EDITION</span>
+    </div>
+    <div class="header-icons">◉ ⚙</div>
+  </header>
+
+  <section class="greeting">
+    <div class="panel">
+      <small>Hello,</small>
+      <h2>Veera</h2>
+      <p>Always here to assist you.</p>
+    </div>
+
+    <div class="panel">
+      <small>J.A.R.V.I.S Quote</small>
+      <h2>AI</h2>
+      <p>"Your intelligent digital partner."</p>
+    </div>
+  </section>
+
+  <section class="core-section">
+    <div class="core">
+      <div class="core-content">
+        <h1>J.A.R.V.I.S</h1>
+        <p>CORE ACTIVE</p>
+      </div>
+    </div>
+    <div class="core-label">SYSTEM READY</div>
+  </section>
+
+  <section class="panel status">
+    <h3>SYSTEM STATUS</h3>
+
+    <div class="status-row">
+      <span>AI CORE</span>
+      <span class="online">● ONLINE</span>
+    </div>
+
+    <div class="status-row">
+      <span>NETWORK</span>
+      <span class="online">● ONLINE</span>
+    </div>
+
+    <div class="status-row">
+      <span>VOICE</span>
+      <span id="voiceStatus" class="locked">○ LOCKED</span>
+    </div>
+
+    <div class="status-row">
+      <span>MEMORY</span>
+      <span class="locked">○ LOCKED</span>
+    </div>
+  </section>
+
+  <section class="chat" id="chat">
+    <div class="message">
+      <b>J.A.R.V.I.S:</b><br>
+      Systems online. How may I assist you?
+    </div>
+  </section>
+
+  <div class="quick-buttons">
+    <button onclick="openYouTube()">▶ YouTube</button>
+    <button onclick="openInstagram()">◎ Instagram</button>
+    <button onclick="makeCall()">☎ Call</button>
+    <button onclick="searchWeb()">⌕ Search</button>
+    <button onclick="speak('Camera command received')">▣ Camera</button>
+    <button onclick="speak('Memory system coming soon')">🧠 Memory</button>
   </div>
-  <p class="core-text">CORE ACTIVE</p>
 
-  <div class="status">
-    <h2>SYSTEM STATUS</h2>
-    <div class="row"><span>AI CORE</span><b class="on">● ONLINE</b></div>
-    <div class="row"><span>NETWORK</span><b class="on">● ONLINE</b></div>
-    <div class="row"><span>VOICE</span><b class="off">○ LOCKED</b></div>
-    <div class="row"><span>MEMORY</span><b class="off">○ LOCKED</b></div>
-  </div>
-
-  <div class="chat" id="chat"></div>
   <div class="input-area">
-    <input id="msg" placeholder="Ask J.A.R.V.I.S...">
-    <button id="send">SEND</button>
+    <input id="userInput" placeholder="Type or speak to J.A.R.V.I.S...">
+    <button class="send" onclick="sendMessage()">SEND</button>
   </div>
 
-  <script src="script.js"></script>
+  <section class="mic-area">
+    <button class="mic" id="micBtn" onclick="startListening()">🎙️</button>
+    <p id="micText">Tap to speak</p>
+  </section>
+
+  <footer class="footer">
+    J.A.R.V.I.S<br><br>
+    MORE THAN AN ASSISTANT • YOUR PARTNER
+  </footer>
+
+</div>
+
+<script>
+const chat = document.getElementById("chat");
+const input = document.getElementById("userInput");
+const micBtn = document.getElementById("micBtn");
+const micText = document.getElementById("micText");
+const voiceStatus = document.getElementById("voiceStatus");
+
+function addMessage(sender, text, isUser = false) {
+  const div = document.createElement("div");
+  div.className = "message" + (isUser ? " user" : "");
+  div.innerHTML = `<b>${sender}:</b><br>${text}`;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function speak(text) {
+  addMessage("J.A.R.V.I.S", text);
+
+  if ("speechSynthesis" in window) {
+    speechSynthesis.cancel();
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-IN";
+    speech.rate = 1;
+    speechSynthesis.speak(speech);
+  }
+}
+
+function sendMessage() {
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  addMessage("YOU", text, true);
+  input.value = "";
+
+  const command = text.toLowerCase();
+
+  if (
+    command.includes("youtube") ||
+    command.includes("యూట్యూబ్")
+  ) {
+    speak("Opening YouTube");
+    setTimeout(openYouTube, 500);
+    return;
+  }
+
+  if (
+    command.includes("instagram") ||
+    command.includes("ఇంస్టాగ్రామ్")
+  ) {
+    speak("Opening Instagram");
+    setTimeout(openInstagram, 500);
+    return;
+  }
+
+  if (
+    command.includes("hello jarvis") ||
+    command.includes("హలో జార్విస్")
+  ) {
+    speak("Hello Veera. I am ready.");
+    return;
+  }
+
+  speak("Your command has been received. AI integration is coming soon.");
+}
+
+input.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+});
+
+/* APP LAUNCH COMMANDS */
+
+function openYouTube() {
+  window.location.href =
+    "intent://www.youtube.com/#Intent;scheme=https;package=com.google.android.youtube;end";
+}
+
+function openInstagram() {
+  window.location.href =
+    "intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end";
+}
+
+function makeCall() {
+  window.location.href = "tel:";
+}
+
+function searchWeb() {
+  window.open("https://www.google.com", "_blank");
+}
+
+/* SPEECH RECOGNITION */
+
+const SpeechRecognition =
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+let recognition;
+
+if (SpeechRecognition) {
+  recognition = new SpeechRecognition();
+  recognition.lang = "en-IN";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.onstart = function() {
+    micBtn.classList.add("listening");
+    micText.textContent = "Listening...";
+    voiceStatus.textContent = "● READY";
+    voiceStatus.className = "online";
+  };
+
+  recognition.onresult = function(event) {
+    const text = event.results[0][0].transcript;
+    input.value = text;
+    sendMessage();
+  };
+
+  recognition.onerror = function() {
+    micText.textContent = "Voice error";
+    micBtn.classList.remove("listening");
+  };
+
+  recognition.onend = function() {
+    micBtn.classList.remove("listening");
+    micText.textContent = "Tap to speak";
+  };
+}
+
+function startListening() {
+  if (!recognition) {
+    speak("Speech recognition is not supported in this browser.");
+    return;
+  }
+
+  try {
+    recognition.start();
+  } catch (error) {
+    console.log(error);
+  }
+}
+</script>
+
 </body>
 </html>
